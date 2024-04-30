@@ -66,7 +66,8 @@ class CustomLogger:
                 self.logger.critical(message)
 
 
-
+# from logger import CustomLogger
+# import logging
 # # Create an instance of CustomLogger
 # LOGGER = CustomLogger()
 
