@@ -110,7 +110,29 @@ class Solution:
 
     #     return arr
 
+    # Faster version
+    # def increasingTriplet(self, nums: List[int]) -> bool:
+    #     first = second = float('inf')
+    #     for i in range(0, len(nums)):
+    #         if  first >= nums[i]:
+    #             first = nums[i]
+    #         elif second >= nums[i]:
+    #             second = nums[i]
+    #         else:
+    #             return True
+    #     return False
+    
+    def increasingTriplet(self, nums: list[int]) -> bool:
+        first, second = float('inf'), float('inf')
+        for third in nums:
+            if second < third: 
+                return True
+            if third <= first: 
+                first= third    
+            else:  
+                second = third 
+        return  False
+
 if __name__ == '__main__':
     solution_instance = Solution()  # Create an instance of the Solution class
     print(solution_instance.productExceptSelf([1,2,3,4]))  # Output: "world hello"
-
