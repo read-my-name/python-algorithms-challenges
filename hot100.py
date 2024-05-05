@@ -87,6 +87,36 @@ class Solution:
                 charset.add(s[r])
         return maxlength
 
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        nums1.extend(nums2)
+        nums1.sort()
+        m=len(nums1)//2
+        if len(nums1)%2!=0:
+            return nums1[m]
+        else:
+            return (nums1[m-1]+nums1[m])/2
+        
+    # sort function is faster than quicksort
+    # def quicksort(self, nums):
+    #     if len(nums) <= 1:
+    #         return nums
+    #     pivot = nums[len(nums) // 2]
+    #     left = [x for x in nums if x < pivot]
+    #     mid = [x for x in nums if x == pivot]
+    #     right = [x for x in nums if x > pivot]
+
+    #     return self.quicksort(left) + mid + self.quicksort(right)
+
+    # def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+    #     nums1.extend(nums2)
+    #     nums1 = self.quicksort(nums1) 
+
+    #     m=len(nums1)//2
+    #     if len(nums1)%2!=0:
+    #         return nums1[m]
+    #     else:
+    #         return (nums1[m-1]+nums1[m])/2
+
 if __name__ == '__main__':
     solution_instance = Solution()  # Create an instance of the Solution class
     print(solution_instance.lengthOfLongestSubstring("pwwkew"))  # Output: "world hello"
