@@ -96,6 +96,20 @@ class Solution:
         else:
             return (nums1[m-1]+nums1[m])/2
         
+    # def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+    #     merged_list = nums1 + nums2
+    #     merged_list.sort()
+    #     merged_length = len(merged_list)
+   
+    #     if (merged_length % 2 == 0):
+    #         #index starts from 0
+    #         half = int(merged_length / 2 - 1)
+    #         return (merged_list[half] + merged_list[half + 1]) / 2
+    #     else:
+    #         #index starts from 0
+    #         half = int((merged_length // 2))
+    #         return merged_list[half]
+
     # sort function is faster than quicksort
     # def quicksort(self, nums):
     #     if len(nums) <= 1:
