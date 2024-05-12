@@ -25,10 +25,5 @@ class Solution:
 
 if __name__ == '__main__':
     print('Uncoment the print in the code for better understanding')
-
-    for i in range(2,5):
-        print('n', i)
-
-
-    # solution_instance = Solution()  # Create an instance of the Solution class
-    # print(solution_instance.generateParenthesis(3))  # Call the Solution function and print the result of the function
+    solution_instance = Solution()  # Create an instance of the Solution class
+    print(solution_instance.generateParenthesis(3))  # Call the Solution function and print the result of the function
