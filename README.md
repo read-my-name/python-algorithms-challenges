@@ -1,3 +1,3 @@
 # python-algorithms-challenges
 
-Sample solution for Ace Coding Interview with 75
+Sample solution for leetcode problems
