@@ -3,16 +3,16 @@ class Solution:
         dp = [[] for _ in range(target + 1)]
 
         for c in candidates:
-            #print("char: ", c)
+            print("char: ", c)
             for i in range(c, target + 1):
-                #print("target: ", target, "--dp: ", dp, "i: ", i , " Before")
+                print("target: ", target, "--dp: ", dp, "i: ", i , " Before")
                 if i == c:
-                    #print("i == c: ", i)
+                    print("i == c: ", i)
                     dp[i].append([c])
                 for comb in dp[i - c]:
-                    #print("comb: ", comb, "[c]: ", [c])
+                    print("comb: ", comb, "[c]: ", [c])
                     dp[i].append(comb + [c])
-                #print("target: ", target, "--dp: ", dp, "i: ", i, "After")
+                print("target: ", target, "--dp: ", dp, "i: ", i, "After")
         return dp[target]
     
 
