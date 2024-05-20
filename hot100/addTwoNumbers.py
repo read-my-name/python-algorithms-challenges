@@ -9,7 +9,6 @@ class Solution:
         res_prev = res_dummy
 
         while p1 or p2:
-
             if not p1:
                 # only p2 is left
                 sum_ = p2.val + carry
@@ -27,20 +26,16 @@ class Solution:
             
             new_node = ListNode(sum_ % 10)
             carry = sum_ // 10
-            
-            
+              
             res_prev.next = new_node
             res_prev = res_prev.next
-        
-        
+
         if carry:
             new_node = ListNode(carry)
             res_prev.next = new_node
             res_prev = res_prev.next
 
-        
         return res_dummy.next
-    
 
 if __name__ == '__main__':
     solution_instance = Solution()  # Create an instance of the Solution class
