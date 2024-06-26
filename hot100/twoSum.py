@@ -12,4 +12,4 @@ class Solution:
 
 if __name__ == '__main__':
     solution_instance = Solution()  # Create an instance of the Solution class
-    print(solution_instance.twoSum([2, 7, 11, 15], 9))
+    print(solution_instance.twoSum([2, 7, 11, 15], 9))=
