@@ -16,3 +16,9 @@ class Solution:
 if __name__ == '__main__':
     solution = Solution()
     print(solution.longestCommonSubsequence('abced', 'ace'))
+    print(solution.longestCommonSubsequence('abc', 'abc'))
+    print(solution.longestCommonSubsequence('abc', 'def'))
+    print(solution.longestCommonSubsequence('abc', 'defg'))
+    print(solution.longestCommonSubsequence('abc', 'defgh'))
+    print(solution.longestCommonSubsequence('abc', 'defghi'))
+    print(solution.longestCommonSubsequence('abc', 'defghij'))
