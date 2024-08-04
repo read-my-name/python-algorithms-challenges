@@ -8,28 +8,42 @@ class ListNode:
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        length = 1
-        dummy = head
-        tail = head
+        # length = 1
+        # dummy = head
+        # tail = head
 
-        # Move 'tail' pointer to the nth node from the beginning
-        while length <= n:
-            tail = tail.next
-            length += 1
+        # # Move 'tail' pointer to the nth node from the beginning
+        # while length <= n:
+        #     tail = tail.next
+        #     length += 1
         
-        # If 'tail' reached the end and 'dummy' is still the head,
-        # it means the first node needs to be removed
-        if tail is None and dummy == head:
-            return dummy.next 
+        # # If 'tail' reached the end and 'dummy' is still the head,
+        # # it means the first node needs to be removed
+        # if tail is None and dummy == head:
+        #     return dummy.next 
       
-        # Move both 'tail' and 'dummy' pointers until 'tail' reaches the end
-        while not tail.next is None:
-            tail = tail.next
+        # # Move both 'tail' and 'dummy' pointers until 'tail' reaches the end
+        # while not tail.next is None:
+        #     tail = tail.next
+        #     dummy = dummy.next
+        
+        # # Remove the nth node from the end by adjusting pointers
+        # dummy.next = dummy.next.next
+        # return head
+
+        res = ListNode(0, head)
+        dummy = res
+
+        for _ in range(n):
+            head = head.next
+        
+        while head:
+            head = head.next
             dummy = dummy.next
         
-        # Remove the nth node from the end by adjusting pointers
         dummy.next = dummy.next.next
-        return head
+
+        return res.next
 
 def main():
     # Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
