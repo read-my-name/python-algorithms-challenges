@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         keypad = {
@@ -24,9 +27,9 @@ class Solution:
 
 if __name__ == "__main__":
     print(Solution().letterCombinations("23"))
-    print(Solution().letterCombinations(""))
-    print(Solution().letterCombinations("2"))
-    print(Solution().letterCombinations("234"))
-    print(Solution().letterCombinations("2345"))
+    # print(Solution().letterCombinations(""))
+    # print(Solution().letterCombinations("2"))
+    # print(Solution().letterCombinations("234"))
+    # print(Solution().letterCombinations("2345"))
 
 
