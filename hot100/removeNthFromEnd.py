@@ -55,10 +55,17 @@ def main():
 
     # Remove the 2nd node from the end (4)
     solution = Solution()
-    new_head = solution.removeNthFromEnd(head, 2)
+    print("Original Linked List:")
+    current = head
+    while current:
+        print(current.val, end=" -> ")
+        current = current.next
+    print("None")
 
+    new_head = solution.removeNthFromEnd(head, 2)
     # Print the updated linked list
     current = new_head
+    print("\nUpdated Linked List:")
     while current:
         print(current.val, end=" -> ")
         current = current.next
