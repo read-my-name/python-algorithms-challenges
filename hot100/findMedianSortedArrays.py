@@ -9,7 +9,8 @@ class Solution:
             return nums1[m]
         else:
             return (nums1[m-1]+nums1[m])/2
-        
+
+# 4. Median of Two Sorted Arrays      
 if __name__ == '__main__':
     solution_instance = Solution()  # Create an instance of the Solution class
     print(solution_instance.findMedianSortedArrays([1,3],[2]))
