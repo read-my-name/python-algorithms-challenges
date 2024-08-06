@@ -1,4 +1,5 @@
-def isMatch(self, s: str, p: str) -> bool:
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
         # memory = {}  # Memoization dictionary to store computed results
         
         # def dfs(i, j):
@@ -53,3 +54,12 @@ def isMatch(self, s: str, p: str) -> bool:
             return result
 
         return backtrack(len(s) - 1, len(p) - 1)
+
+# 10. Regular Expression Matching
+if __name__ == "__main__":
+    s = "aa"
+    p = "a*"
+    solution = Solution()
+    result = solution.isMatch(s, p)
+    print(result)
+    
