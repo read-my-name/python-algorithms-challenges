@@ -11,7 +11,8 @@ class Solution:
                 goal = i
         return goal==0
         # return True if goal == 0 else False
-    
+
+# 55. Jump Game 
 if __name__ == "__main__":
     nums = [2,3,1,1,4]
     print(Solution().canJump(nums))
