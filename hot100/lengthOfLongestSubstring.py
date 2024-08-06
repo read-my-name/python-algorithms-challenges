@@ -13,7 +13,8 @@ class Solution:
                 maxlen = max(maxlen, i - start + 1)
             used[c] = i
         return maxlen
-    
+
+# 3. Longest Substring Without Repeating Characters 
 if __name__ == '__main__':
     solution_instance = Solution()  # Create an instance of the Solution class
     print(solution_instance.lengthOfLongestSubstring("tmmzuxt"))
