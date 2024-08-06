@@ -7,37 +7,31 @@ class ListNode:
         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        def merge_lists(l1, l2):
-            node = ListNode()
-            ans = node
-            
+        def merge_list(l1,l2):
+            res = ListNode()
+            tmp = res
+
             while l1 and l2:
                 if l1.val > l2.val:
-                    node.next = l2
+                    tmp.next = l2
                     l2 = l2.next
                 else:
-                    node.next = l1
+                    tmp.next = l1
                     l1 = l1.next
-                node = node.next
-            
-            if l1:
-                node.next = l1
-            else:
-                node.next = l2
-            
-            return ans.next
+                tmp = tmp.next
+            tmp.next = l1 if l1 else l2
+            return res.next
         
-        if not lists or len(lists) == 0:
+        if not lists or len(lists) <= 0:
             return None
         
         while len(lists) > 1:
-            temp = []
+            tmp = []
             for i in range(0, len(lists), 2):
                 l1 = lists[i]
-                l2 = lists[i+1] if i + 1 < len(lists) else None
-                temp.append(merge_lists(l1, l2))
-            lists = temp
-    
+                l2 = lists[i+1] if i+1 < len(lists) else None
+                tmp.append(merge_list(l1,l2))
+            lists = tmp
         return lists[0]
 
 # 23. Merge k Sorted Lists
