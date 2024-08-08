@@ -6,12 +6,14 @@ class Solution:
         d = {0:1}
         for i in range(len(nums)):
             summ += nums[i]
+            print("summ-k =", summ-k)
             if summ - k in d:
                 count += d[summ - k]
             if summ in d:
                 d[summ] += 1
             else:
                 d[summ] = 1
+            print("Dict: ", d, " Count: ", count)
         return count
 
 # 560. Subarray Sum Equals K
