@@ -6,7 +6,7 @@ class Solution:
         if len(nums) == 1:
             return [nums[:]]
         res = []
-        for _ in range(len(nums)):
+        for _ in range(len(nums)):            
             n = nums.pop(0)
             perms = self.permute(nums)
 
@@ -20,9 +20,9 @@ class Solution:
 
 if __name__ == "__main__":
     nums = [1,2,3]
-    print(Solution().permute(nums))
+    # print(Solution().permute(nums))
     nums = [0,1]
     print(Solution().permute(nums))
-    nums = [1]
-    print(Solution().permute(nums))
+    # nums = [1]
+    # print(Solution().permute(nums))
     
