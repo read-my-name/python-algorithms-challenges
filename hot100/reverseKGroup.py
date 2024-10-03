@@ -6,49 +6,48 @@ class ListNode(object):
 
 class Solution(object):
     def reverseKGroup(self, head, k):
-        if head is None or k == 1:
-            return head
+        # Helper function to reverse a linked list segment
+        '''
+        Original list: A -> B -> C -> D -> E -> F -> ...
+        After reversal (first 3 nodes):
+        Reversed part: C -> B -> A -> None
+        Remaining part: D -> E -> F -> ...
+        '''
+        def reverseLinkedList(start, k):
+            prev = None
+            current = start
+            for _ in range(k):
+                temp = current.next  # Store the next node
+                current.next = prev   # Reverse the current node's pointer
+                prev = current        # Move prev to the current node
+                current = temp        # Move to the next node
+            return prev, current  # Return new head and the next node after reversal
 
-        # Dummy node initialization
+        # Create a dummy node to facilitate easier manipulation of the list
         dummy = ListNode(0)
         dummy.next = head
-        ptr = dummy
-
-        while ptr is not None:
-            tracker = ptr
-
-            # Check if there are at least k nodes ahead
-            for i in range(k):
-                tracker = tracker.next
-                if tracker is None:
-                    return dummy.next
-
-            # Reverse the k nodes
-            previous, current = self.reverseLinkedList(ptr.next, k)
-
-            # Link the reversed part back to the main list
-            lastNodeOfReversedGroup = ptr.next
-            lastNodeOfReversedGroup.next = current
-            ptr.next = previous
-            ptr = lastNodeOfReversedGroup
-
-        return dummy.next
-
-    def reverseLinkedList(self, head, k):
-        previous = None
+        prev_tail = dummy
         current = head
 
-        for _ in range(k):
-            # Temporarily store the next node
-            next_node = current.next
-            # Reverse the current node
-            current.next = previous
-            # Move previous and current one step forward
-            previous = current
-            current = next_node
+        while True:
+            # Check if there are at least k nodes left to reverse
+            count = 0
+            temp = current
+            while count < k and temp:
+                temp = temp.next
+                count += 1
+            
+            if count < k:  # If there are not enough nodes, break
+                break
+            
+            # Reverse the next k nodes
+            new_head, next_group = reverseLinkedList(current, k)
+            prev_tail.next = new_head # Connect the previous part with the newly reversed part
+            current.next = next_group # Connect the reversed part with the next part
+            prev_tail = current # Move prev_tail to current (which is the end of the newly reversed group)
+            current = next_group # Move current to the next group
 
-        # Return the new head and the next pointer for further operations
-        return previous, current
+        return dummy.next  # Return the new head of the modified list
     
 if __name__ == "__main__":
     # Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
@@ -57,11 +56,12 @@ if __name__ == "__main__":
     head.next.next = ListNode(3)
     head.next.next.next = ListNode(4)
     head.next.next.next.next = ListNode(5)
+    head.next.next.next.next.next = ListNode(6)
 
     # Create a Solution object
     solution = Solution()
     # Reverse the linked list
-    reversed_head = solution.reverseKGroup(head, 2)
+    reversed_head = solution.reverseKGroup(head, 3)
 
     # Print the reversed linked list
     while reversed_head:
