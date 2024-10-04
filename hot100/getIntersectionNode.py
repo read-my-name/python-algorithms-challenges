@@ -13,12 +13,25 @@ class Solution(object):
         return a
 
 if __name__ == "__main__":
-    # Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
-    headA = ListNode(1)
-    headA.next = ListNode(2)
-    headA.next.next = ListNode(3)
-    headA.next.next.next = ListNode(4)
-    headA.next.next.next.next = ListNode(5)
+    intersection = ListNode(8)
+    intersection.next = ListNode(4)
+    intersection.next.next = ListNode(5)
 
-    # Create another linked list: 1 -> 2 -> 3 -> 4 -> 5
-    headB = ListNode(1)
+    # Create the first list and attach the intersection
+    headA = ListNode(4)
+    headA.next = ListNode(1)
+    headA.next.next = intersection
+
+    # Create the second list and attach the intersection
+    headB = ListNode(5)
+    headB.next = ListNode(6)
+    headB.next.next = ListNode(1)
+    headB.next.next.next = intersection
+
+    # Create a Solution object
+    solution = Solution()
+    # Find the intersection node
+    intersection_node = solution.getIntersectionNode(headA, headB)
+
+    # Print the intersection node
+    print(intersection_node.val)
