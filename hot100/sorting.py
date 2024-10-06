@@ -177,3 +177,65 @@ def heapsort(a):
         heap[i],heap[root]=heap[root],heap[i]
         maxheapify(heap,root,i-1)
     return heap[root:]
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    mid = len(arr) // 2
+    left_half = merge_sort(arr[:mid])  # Sort the left half
+    right_half = merge_sort(arr[mid:])  # Sort the right half
+    
+    return merge(left_half, right_half)
+
+def merge(left, right):
+    result = []
+    i = j = 0
+    
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    
+    result.extend(left[i:])  # Add remaining elements
+    result.extend(right[j:])  # Add remaining elements
+    
+    return result
+
+# Example usage
+arr = [38, 27, 43, 3, 9, 82, 10]
+print("Merge Sort:", merge_sort(arr))
+
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]  # Shift elements to the right
+            j -= 1
+            
+        arr[j + 1] = key  # Insert the key at the correct position
+    return arr
+
+# Example usage
+arr = [12, 11, 13, 5, 6]
+print("Insertion Sort:", insertion_sort(arr))
+
+def selection_sort(arr):
+    for i in range(len(arr)):
+        min_idx = i  # Assume the minimum is the first element
+        
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[min_idx]:  # Find the minimum element
+                min_idx = j
+        
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]  # Swap the found minimum with the first element
+    return arr
+
+# Example usage
+arr = [64, 25, 12, 22, 11]
+print("Selection Sort:", selection_sort(arr))
